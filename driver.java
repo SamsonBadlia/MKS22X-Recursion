@@ -17,6 +17,10 @@ public class driver{
   System.out.println("Should be 8");
   System.out.println(recursion.fib(10));
   System.out.println("Should be 55");
+  System.out.println(recursion.makeAllSums(3));
+  System.out.println("Should be [0, 3, 2, 5, 1, 4, 3, 6]");
+  System.out.println(recursion.makeAllSums(2));
+  System.out.println("Should be [0,1,2,3]");
   }
 
 }
