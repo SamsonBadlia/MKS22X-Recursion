@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class recursion{
 
   public static double sqrt(double n,double tolerance){
@@ -20,12 +22,16 @@ public class recursion{
     return current;
   }
 
-
-
-    /*As Per classwork
     public static ArrayList<Integer> makeAllSums(int n){
+      ArrayList<Integer> L = new ArrayList<Integer>();
+      return sumshelper(n,0,L);
     }
 
-}*/
+    private static ArrayList<Integer> sumshelper(int n, int sum, ArrayList<Integer> L){
+      if (n > 0){
+        sumshelper(n - 1, sum, L);
+      }
+      return L;
+    }
 
 }
