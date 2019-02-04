@@ -30,6 +30,7 @@ public class recursion{
     private static ArrayList<Integer> sumshelper(int n, int sum, ArrayList<Integer> L){
       if (n > 0){
         sumshelper(n - 1, sum, L);
+        sumshelper(n - 1, sum + n, L);
       }
       return L;
     }
