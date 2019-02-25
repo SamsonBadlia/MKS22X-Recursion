@@ -20,10 +20,12 @@ public class recursion{
    * @return           Approximate square root
    */
   private static double sqrthelper(double n, double guess, double tolerance){
-    double check = Math.abs(n - (guess * guess)) / n;
-    guess = (n/guess + guess)/ 2.0;
-    if (check > tolerance) return sqrthelper(n,guess,tolerance);
-    return guess;
+    double check = (guess * guess) / n;
+    if (Math.abs(1 - check) < tolerance) return n;
+    else {
+      guess = (n / guess + guess) / 2;
+      return sqrthelper(n,guess,tolerance);
+    }
   }
 
   /**
