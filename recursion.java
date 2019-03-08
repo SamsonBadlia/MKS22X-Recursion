@@ -9,7 +9,10 @@ public class recursion{
    * @return           The square root given the tolerance
    */
   public static double sqrt(double n,double tolerance){
-      return sqrthelper(n,1.0,tolerance);
+    if (n == 0) {
+      return 0;
+      }
+    return sqrthelper(n,n/2,tolerance);
   }
 
   /**
@@ -20,11 +23,12 @@ public class recursion{
    * @return           Approximate square root
    */
   private static double sqrthelper(double n, double guess, double tolerance){
-    double check = (guess * guess) / n;
-    if (Math.abs(1 - check) < tolerance) return n;
+    if (Math.abs(guess * guess - n) <= tolerance) {
+      return guess;
+    }
     else {
-      guess = (n / guess + guess) / 2;
-      return sqrthelper(n,guess,tolerance);
+      double newGuess = (n / guess + guess) / 2;
+      return sqrthelper(n, newGuess, tolerance);
     }
   }
 
@@ -108,8 +112,11 @@ public static void testFib(int testcase){
 }
 
 public static boolean closeEnough(double a, double b){
-  if ( b/a < 0.00001) return true;
-  return false;
+    if(a==0.0 && b==0.0)return true;
+    if(a==0.0)return b < 0.00000000001;
+    if(b==0.0)return a < 0.00000000001;
+    return Math.abs(a-b)/a < 0.0001;//This is the normal % difference allowed
+
 }
 
 //testcase must be a valid index of your input/output array
