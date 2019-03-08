@@ -61,7 +61,8 @@ public class recursion{
    */
   public static ArrayList<Integer> makeAllSums(int n){
     ArrayList<Integer> L = new ArrayList<Integer>();
-    return sumshelper(n,0,L);
+    sumshelper(n,0,L);
+    return L;
   }
 
   /**
@@ -71,13 +72,12 @@ public class recursion{
    * @param  L   ArrayList of all the sums
    * @return     ArrayList with all sums
    */
-  private static ArrayList<Integer> sumshelper(int n, int sum, ArrayList<Integer> L){
+  private static void sumshelper(int n, int sum, ArrayList<Integer> L){
     if (n > 0){
       sumshelper(n - 1, sum, L);
       sumshelper(n - 1, sum + n, L);
     }
-    if (n == 0) L.add(sum);;
-    return L;
+    if (n == 0) L.add(sum);
   }
 
   //testcase must be a valid index of your input/output array
@@ -154,6 +154,11 @@ public static void testSqrt(int testcase){
 
     testFib(5);
     testSqrt(2);
+    System.out.println(makeAllSums(3));
+    System.out.println("Should be [0, 3, 2, 5, 1, 4, 3, 6]");
+    System.out.println(makeAllSums(4));
+    System.out.println(makeAllSums(5));
+
 
   }
 
